@@ -1,7 +1,7 @@
-﻿namespace HotelProject.EntityLayer.Abstracts
+﻿namespace HotelProject.DataAccessLayer.Abstracts
 {
-    using Concretes;
     using CoreLayer.DataAccess.Abstracts;
+    using EntityLayer.Concretes;
 
     public interface IStaffDal : IGenericDal<Staff>
     {

@@ -1,7 +1,7 @@
 ﻿namespace HotelProject.DataAccessLayer.Concretes.EntityFramework.Repositories
 {
+    using Abstracts;
     using Contexts;
-    using EntityLayer.Abstracts;
     using EntityLayer.Concretes;
 
     public class EfSubscribeDal : GenericRepository<Subscribe>, ISubscribeDal
