@@ -3,6 +3,7 @@
 namespace HotelProject.WebApi.Controllers
 {
     using BusinessLayer.Abstracts;
+    using EntityLayer.Concretes;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -23,9 +24,9 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRoom()
+        public IActionResult AddRoom(Staff staff)
         {
-            //var value = _staffService.TInsert();
+            _staffService.TInsert(staff);
             return Ok();
         }
 
