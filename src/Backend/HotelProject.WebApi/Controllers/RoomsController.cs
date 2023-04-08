@@ -31,7 +31,7 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetRoom()
+        public IActionResult GetRoomById()
         {
             return Ok();
         }

@@ -1,7 +1,7 @@
 ﻿namespace HotelProject.BusinessLayer.Concretes
 {
     using Abstracts;
-    using EntityLayer.Abstracts;
+    using DataAccessLayer.Abstracts;
     using EntityLayer.Concretes;
 
     public class RoomManager : IRoomService
@@ -35,7 +35,7 @@
             return _roomDal.GetList();
         }
 
-        public Room TGetById(Guid id)
+        public Room TGetById(int id)
         {
             return _roomDal.GetById(id);
         }

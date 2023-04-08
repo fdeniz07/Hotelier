@@ -1,7 +1,7 @@
 ﻿namespace HotelProject.BusinessLayer.Concretes
 {
     using Abstracts;
-    using EntityLayer.Abstracts;
+    using DataAccessLayer.Abstracts;
     using EntityLayer.Concretes;
 
     public class SubscribeManager : ISubscribeService
@@ -35,7 +35,7 @@
             return _subscribeDal.GetList();
         }
 
-        public Subscribe TGetById(Guid id)
+        public Subscribe TGetById(int id)
         {
             return _subscribeDal.GetById(id);
         }

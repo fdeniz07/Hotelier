@@ -10,6 +10,6 @@
 
         List<TEntity> TGetList();
 
-        TEntity TGetById(Guid id);
+        TEntity TGetById(int id);
     }
 }

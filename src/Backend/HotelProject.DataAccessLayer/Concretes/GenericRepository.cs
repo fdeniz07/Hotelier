@@ -35,7 +35,7 @@
             return _dbContext.Set<TEntity>().ToList();
         }
 
-        public TEntity GetById(Guid id)
+        public TEntity GetById(int id)
         {
             return _dbContext.Set<TEntity>().Find(id);
         }

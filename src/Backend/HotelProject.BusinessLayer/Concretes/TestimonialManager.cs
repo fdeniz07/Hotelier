@@ -1,7 +1,7 @@
 ﻿namespace HotelProject.BusinessLayer.Concretes
 {
     using Abstracts;
-    using EntityLayer.Abstracts;
+    using DataAccessLayer.Abstracts;
     using EntityLayer.Concretes;
 
     public class TestimonialManager : ITestimonialService
@@ -35,7 +35,7 @@
             return _testimonialDal.GetList();
         }
 
-        public Testimonial TGetById(Guid id)
+        public Testimonial TGetById(int id)
         {
             return _testimonialDal.GetById(id);
         }
