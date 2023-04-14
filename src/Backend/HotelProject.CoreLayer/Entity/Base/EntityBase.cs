@@ -27,6 +27,7 @@
             Id = id;
             //if (id == Guid.Empty) Id = Guid.NewGuid();
             CreatedDate = ModifiedDate = DateTime.Now;
+
         }
     }
 }

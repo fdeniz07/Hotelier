@@ -2,7 +2,7 @@
 {
     using CoreLayer.Entity.Base;
 
-    public class Room : EntityBase,IEntity
+    public class Room : EntityBase, IEntity
     {
         public string RoomNumber { get; set; }
 
@@ -19,5 +19,15 @@
         public bool Wifi { get; set; }
 
         public string Description { get; set; }
+
+        public Room()
+        {
+        }
+
+        public Room(int id, string roomNumber) : this()
+        {
+            Id = id;
+            RoomNumber = roomNumber;
+        }
     }
 }
