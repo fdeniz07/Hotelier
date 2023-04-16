@@ -3,6 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient(); //Controller üzerinde constructor olusturdugumuz icin bu servisi eklemeliyiz.
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -20,6 +20,12 @@
 
         public EntityBase()
         {
+            CreatedDate = ModifiedDate = DateTime.Now;
+            IsActive = true;
+            IsDeleted = false;
+            CreatedByName = "Admin";
+            ModifiedByName = "Admin";
+            Note = "null";
         }
 
         public EntityBase(int id) : this() //Varsa, ilk deger atamalari ya constructor üzerinden ya da property üzerinden yapilir.
