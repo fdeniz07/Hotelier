@@ -1,6 +1,6 @@
 ﻿namespace HotelProject.WebUI.Models.Staff
 {
-    public class AddStaffViewModel
+    public class StaffAddViewModel
     {
         public string Name { get; set; }
 
@@ -15,5 +15,6 @@
         public string FacebookLink { get; set; }
 
         public string LinkedInLink { get; set; }
+
     }
 }

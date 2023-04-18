@@ -5,6 +5,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient(); //Controller üzerinde constructor olusturdugumuz icin bu servisi eklemeliyiz.
 
+
+//Razor sayfalari icin yapilan degisikliklerde programi derlemeden sadece sayfanin yenilenmesi ile degisikliklerin aktif olmasi icin
+//ilk önce Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation nuget paketi ilgili katmana kurulur,
+//sonra da su iki komut eklenir:
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
