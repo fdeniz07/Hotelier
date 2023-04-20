@@ -9,6 +9,7 @@
         public UserProfile()
         {
             CreateMap<RoomAddDto, Room>();
+            CreateMap<Room,RoomAddDto > ();
         }
     }
 }
