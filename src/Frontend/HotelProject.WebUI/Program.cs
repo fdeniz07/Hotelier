@@ -5,6 +5,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient(); //Controller üzerinde constructor olusturdugumuz icin bu servisi eklemeliyiz.
 
+builder.Services.AddAutoMapper(typeof(Program)); //AutoMapper servisini tanimliyoruz ve bulundugu Assembly'de bir Class adi (Program.cs) veriyoruz.
 
 //Razor sayfalari icin yapilan degisikliklerde programi derlemeden sadece sayfanin yenilenmesi ile degisikliklerin aktif olmasi icin
 //ilk önce Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation nuget paketi ilgili katmana kurulur,
