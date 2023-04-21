@@ -1,5 +1,6 @@
 ﻿namespace HotelProject.EntityLayer.Dtos.RoomDto
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using CoreLayer.Entity.Base;
 
@@ -24,6 +25,11 @@
 
         public bool Wifi { get; set; }
 
+        [Required(ErrorMessage = "Lütfen aciklamayi yaziniz")]
         public string Description { get; set; }
+
+        [DisplayName("Aktif Mi?")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir")]
+        public bool IsActive { get; set; }
     }
 }

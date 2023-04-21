@@ -1,4 +1,4 @@
-﻿namespace HotelProject.WebUI.Mapping.AutoMapper.Profile
+﻿namespace HotelProject.WebApi.Mapper.AutoMapper.Profile
 {
     using EntityLayer.Concretes;
     using EntityLayer.Dtos.RoomDto;
