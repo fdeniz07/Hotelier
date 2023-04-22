@@ -10,8 +10,9 @@
         <th>Referans Adi</th>
         <th>Referans Ünvan</th>
         <th>Referans Görseli</th>
-        <th>Sil</th>
         <th>Güncelle</th>
+        <th>Sil</th>
+        <th>Detaylar</th>
     </tr>
 
     @foreach (var item in Model)
@@ -20,6 +21,8 @@
             <th>@item.Id</th>
             <td>@item.Name</td>
             <td>@item.Title</td>
+            <td>@item.Image</td>
+
             <td><a href="/testimonials/DeleteTestimonials/@item.Id" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
             <td><a href="/testimonials/UpdateTestimonials/@item.Id" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
             <td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
