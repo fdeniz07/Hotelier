@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Backend\HotelProject.DataAccessLayer\HotelProject.DataAccessLayer.csproj" />
     <ProjectReference Include="..\..\Backend\HotelProject.EntityLayer\HotelProject.EntityLayer.csproj" />
   </ItemGroup>
 

@@ -1,3 +1,6 @@
+using HotelProject.DataAccessLayer.Concretes.EntityFramework.Contexts;
+using HotelProject.EntityLayer.Concretes.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +15,9 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddAutoMapper(typeof(Program)); //AutoMapper servisini tanimliyoruz ve bulundugu Assembly'de bir Class adi (Program.cs) veriyoruz.
+
+builder.Services.AddDbContext<MsDbContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MsDbContext>();
 
 var app = builder.Build();
 
