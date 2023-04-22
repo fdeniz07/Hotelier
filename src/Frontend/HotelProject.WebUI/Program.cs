@@ -11,6 +11,8 @@ builder.Services.AddHttpClient(); //Controller üzerinde constructor olusturdugum
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
+builder.Services.AddAutoMapper(typeof(Program)); //AutoMapper servisini tanimliyoruz ve bulundugu Assembly'de bir Class adi (Program.cs) veriyoruz.
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
