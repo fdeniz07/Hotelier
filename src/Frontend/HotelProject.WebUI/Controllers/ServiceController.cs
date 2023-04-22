@@ -16,6 +16,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
 
+
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
