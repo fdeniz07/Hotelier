@@ -1,9 +1,11 @@
 ﻿namespace HotelProject.DataAccessLayer.Concretes.EntityFramework.Contexts
 {
     using EntityLayer.Concretes;
+    using EntityLayer.Concretes.Identity;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class MsDbContext : DbContext
+    public class MsDbContext : IdentityDbContext<AppUser, AppRole, int> //Eger id'lerin int tipinde olmasini istersek belirtiryoruz. Default GUID.
     {
         public MsDbContext(DbContextOptions options) : base(options)
         {
