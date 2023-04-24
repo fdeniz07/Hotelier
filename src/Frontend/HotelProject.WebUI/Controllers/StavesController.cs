@@ -2,9 +2,9 @@
 
 namespace HotelProject.WebUI.Controllers
 {
-    using System.Text;
-    using Models.Staff;
+    using HotelProject.WebUI.ViewModels.Staff;
     using Newtonsoft.Json;
+    using System.Text;
 
     public class StavesController : Controller
     {

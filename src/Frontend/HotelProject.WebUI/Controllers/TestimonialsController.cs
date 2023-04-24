@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-    using Models.Testimonial;
+    using HotelProject.WebUI.ViewModels.Testimonial;
 
     public class TestimonialsController : Controller
     {

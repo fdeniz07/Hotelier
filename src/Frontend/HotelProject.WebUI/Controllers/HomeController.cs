@@ -1,9 +1,10 @@
-﻿using HotelProject.WebUI.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace HotelProject.WebUI.Controllers
 {
+    using ViewModels;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

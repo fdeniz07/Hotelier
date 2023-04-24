@@ -1,7 +1,27 @@
 using HotelProject.DataAccessLayer.Concretes.EntityFramework.Contexts;
 using HotelProject.EntityLayer.Concretes.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Önce DbContext eklenir
+builder.Services.AddDbContext<MsDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MsSQL"));
+});
+
+//Sonra Identity yapisi cagrilir
+builder.Services.AddIdentity<AppUser, AppRole>(options =>
+{
+    options.Password.RequiredLength = 3;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+}).AddEntityFrameworkStores<MsDbContext>();
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -15,9 +35,6 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddAutoMapper(typeof(Program)); //AutoMapper servisini tanimliyoruz ve bulundugu Assembly'de bir Class adi (Program.cs) veriyoruz.
-
-builder.Services.AddDbContext<MsDbContext>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MsDbContext>();
 
 var app = builder.Build();
 

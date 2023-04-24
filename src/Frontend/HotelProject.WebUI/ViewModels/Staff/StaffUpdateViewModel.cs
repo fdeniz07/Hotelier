@@ -1,4 +1,4 @@
-﻿namespace HotelProject.WebUI.Models.Staff
+﻿namespace HotelProject.WebUI.ViewModels.Staff
 {
     public class StaffUpdateViewModel
     {

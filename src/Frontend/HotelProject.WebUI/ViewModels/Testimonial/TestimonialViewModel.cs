@@ -1,6 +1,6 @@
-﻿namespace HotelProject.WebUI.Models.Testimonial
+﻿namespace HotelProject.WebUI.ViewModels.Testimonial
 {
-    public class TestimonialUpdateViewModel
+    public class TestimonialViewModel
     {
         public int Id { get; set; }
 

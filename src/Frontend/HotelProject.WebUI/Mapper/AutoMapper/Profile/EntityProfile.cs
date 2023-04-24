@@ -1,9 +1,9 @@
 ﻿namespace HotelProject.WebUI.Mapper.AutoMapper.Profile
 {
-    using Dtos.AppUser;
     using EntityLayer.Concretes;
     using EntityLayer.Concretes.Identity;
     using global::AutoMapper;
+    using ViewModels.AppUser;
     using WebUI.Dtos.ServiceDto;
 
     public class EntityProfile : Profile
@@ -14,7 +14,7 @@
             CreateMap<UpdateServiceDto, Service>().ReverseMap();
             CreateMap<CreateServiceDto, Service>().ReverseMap();
 
-            CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
+            CreateMap<SignUpViewModel, AppUser>().ReverseMap();
         }
     }
 }

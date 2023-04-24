@@ -2,11 +2,11 @@
 
 namespace HotelProject.WebUI.Controllers
 {
-    using Dtos.AppUser;
+    using EntityLayer.Concretes.Enums;
     using EntityLayer.Concretes.Identity;
-    using HotelProject.EntityLayer.Concretes.Enums;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc.Rendering;
+    using ViewModels.AppUser;
 
     public class RegisterController : Controller
     {
@@ -17,37 +17,53 @@ namespace HotelProject.WebUI.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
             ViewBag.Gender = new SelectList(Enum.GetNames(typeof(Gender))); //Enum tipindeki cinsiyetleri Dropdownlist icinde göstermek icin
+
+            ViewBag.City = new SelectList(Enum.GetNames(typeof(City)));
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
+        public async Task<IActionResult> SignUp(SignUpViewModel request)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            var appUser = new AppUser()
+            var identityResult = await _userManager.CreateAsync(new()
             {
-                FirstName = createNewUserDto.FirstName,
-                LastName = createNewUserDto.LastName,
-                Email = createNewUserDto.Email,
-                UserName = createNewUserDto.Username,
-                Gender = (int)createNewUserDto.Gender
-              
-            };
-            var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
-            if (result.Succeeded)
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                UserName = request.Username,
+                PhoneNumber = request.PhoneNumber,
+                Gender = (int)request.Gender,
+                City = (int)request.City
+            }, request.PasswordConfirm);
+
+            if (identityResult.Succeeded)
             {
-                return RedirectToAction("Index", "Login");
+                ViewBag.SuccessMessage = "Üyelik kayıt işlemi başarıyla gerçekleşmiştir. ";
+
+                //return RedirectToAction("Index", "Login");
             }
 
+
+            foreach (IdentityError item in identityResult.Errors)
+            {
+                ModelState.AddModelError(string.Empty, item.Description);
+            }
             return View();
+
         }
     }
 }
