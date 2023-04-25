@@ -16,9 +16,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/adminweb/assets/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="~/adminweb/css/style.css" rel="stylesheet">
-
-
-
 </head>
 
 <body class="h-100">
@@ -51,28 +48,37 @@
                                     <h4 class="text-center font-weight-light my-4">Yeni Hesap Oluştur</h4>
                                 </div>
 
-                                @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+                              @*  ViewBag ile veri tasima*@
+               @*                 @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
                                 {
                                     <div class="alert alert-success" role="alert">
                                         @ViewBag.SuccessMessage
                                     </div>
-                                }
+                                }*@
+                              
+                              @*TempData ile veri tasima*@
+                              @if (TempData["SuccessMessage"]!=null)
+                              {
+                                  <div class="alert alert-primary" role="alert">
+                                        @TempData["SuccessMessage"]
+                                  </div>
+                              }
 
-                                <div class="card-body" style="background-color: cornsilk">
+                              <div class="card-body" style="background-color: cornsilk">
                                     <form asp-controller="Register" asp-action="SignUp" method="post" id="form-user-add">
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="FirstName" asp-for="FirstName"></label>
                                                     <input asp-for="FirstName" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="FirstName"></span>*@
+                                                     <span class="text-danger" asp-validation-for="FirstName"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="LastName" asp-for="LastName"></label>
                                                     <input asp-for="LastName" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="LastName"></span>*@
+                                                     <span class="text-danger" asp-validation-for="LastName"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,15 +90,14 @@
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="Username" asp-for="Username"></label>
                                                     <input asp-for="Username" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="Username"></span>*@
+                                                    <span class="text-danger" asp-validation-for="Username"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="small mb-1" for="Gender" asp-for="Gender"></label>
-                                                   @* <input class="form-control py-4" id="Gender" type="checkbox" asp-for="Gender" />     *@
-                                                    <select class="form-control" asp-for="Gender" asp-items="@ViewBag.Gender"></select>
-                                                    @* <span class="text-danger" asp-validation-for="Gender"></span>*@
+                                                    <label class="small mb-1" for="Email" asp-for="Email"></label>
+                                                    <input type="email" asp-for="Email" class="form-control">
+                                                    <span class="text-danger" asp-validation-for="Email"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,21 +107,22 @@
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="City" asp-for="City"></label>
                                                     <select class="form-control" asp-for="City" asp-items="@ViewBag.City"></select>
-                                                  @*  <span class="text-danger" asp-validation-for="City"></span>*@
+                                                    <span class="text-danger" asp-validation-for="City"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="small mb-1" for="Email" asp-for="Email"></label>
-                                                    <input asp-for="Email" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="Email"></span>*@
+                                                    <label class="small mb-1" for="Gender" asp-for="Gender"></label>
+                                                    @* <input class="form-control py-4" id="Gender" type="checkbox" asp-for="Gender" />     *@
+                                                    <select class="form-control" asp-for="Gender" asp-items="@ViewBag.Gender"></select>
+                                                    <span class="text-danger" asp-validation-for="Gender"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="PhoneNumber" asp-for="PhoneNumber"></label>
-                                                    <input asp-for="PhoneNumber" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="PhoneNumber"></span>*@
+                                                    <input type="tel" asp-for="PhoneNumber" class="form-control">
+                                                     @*<span class="text-danger" asp-validation-for="PhoneNumber"></span>*@
                                                 </div>
                                             </div>
 
@@ -126,15 +132,15 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="Password" asp-for="Password"></label>
-                                                    <input asp-for="Password" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="Password"></span>*@
+                                                    <input type="password" asp-for="Password" class="form-control">
+                                                     <span class="text-danger" asp-validation-for="Password"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="small mb-1" for="PasswordConfirm" asp-for="PasswordConfirm"></label>
-                                                    <input asp-for="PasswordConfirm" class="form-control">
-                                                    @* <span class="text-danger" asp-validation-for="PasswordConfirm"></span>*@
+                                                    <input type="password" asp-for="PasswordConfirm" class="form-control">
+                                                     <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
                                                 </div>
                                             </div>
                                             @*                          <div class="form-group col-md-6">

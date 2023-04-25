@@ -15,21 +15,17 @@
             Password = password;
         }
 
-        public SignUpViewModel()
-        {
-            
-        }
+        public SignUpViewModel() {}
 
-
-        ////[Required(ErrorMessage = "Ad alanı boş geçilemez")]
+        [Required(ErrorMessage = "Ad alanı boş geçilemez")]
         [Display(Name = "Adınız")]
         public string FirstName { get; set; }
 
-        ////[Required(ErrorMessage = "Soyad alanı boş geçilemez")]
+        [Required(ErrorMessage = "Soyad alanı boş geçilemez")]
         [Display(Name = "Soyadınız")]
         public string LastName { get; set; }
 
-        //[Required(ErrorMessage = "Kullanıcı alanı boş geçilemez")]
+        [Required(ErrorMessage = "Kullanıcı alanı boş geçilemez")]
         [Display(Name = "Kullanıcı Adı")]
         public string Username { get; set; }
 
@@ -41,22 +37,20 @@
         [Display(Name = "Şehir")]
         public City City { get; set; }
 
-        //[Required(ErrorMessage = "Email alanı boş geçilemez")]
+        [Required(ErrorMessage = "Email alanı boş geçilemez")]
         [Display(Name = "Email Adresiniz")]
         public string Email { get; set; }
 
         [Display(Name = "Telefon No")]
         public string PhoneNumber { get; set; }
 
-        //[Required(ErrorMessage = "Şifre alanı boş geçilemez")]
+        [Required(ErrorMessage = "Şifre alanı boş geçilemez")]
         [Display(Name = "Şifre")]
         public string Password { get; set; }
 
-        // [Required(ErrorMessage = "Şifre tekrar alanı boş geçilemez")]
-        // [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor")]
+        [Required(ErrorMessage = "Şifre tekrar alanı boş geçilemez")]
+        [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor")]
         [Display(Name = "Şifre Tekrar")]
         public string PasswordConfirm { get; set; }
-
-
     }
 }
